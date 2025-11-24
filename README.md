@@ -1,5 +1,4 @@
- # Capstone Project: SQL + Excel + Power BI
-## Project Workflow
+
 
 ![Capstone Project Visual](Snips/Profile.png)
 
