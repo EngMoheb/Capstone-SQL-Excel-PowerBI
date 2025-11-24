@@ -1,4 +1,7 @@
  # Capstone Project: SQL + Excel + Power BI
+## Project Workflow
+
+![Capstone Project Visual](Snips/Profile.png)
 
 ## Overview
 This repository contains a capstone project demonstrating an end-to-end data analytics workflow.  
