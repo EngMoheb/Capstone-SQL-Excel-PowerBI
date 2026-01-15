@@ -42,3 +42,31 @@ Wildfires are a growing environmental challenge in the United States. This datas
 - **Excel** for initial exploration, PivotTables, and cleaning documentation.
 - **SQL (PostgreSQL/SQLite)** for querying and aggregations.
 - **Power BI** for interactive dashboards and geospatial maps.
+
+
+## Repository Structure
+
+📂 us-wildfires-analysis  
+│  
+├── 📁 data  
+│   └── raw/ → Original SQLite database  
+│   └── processed/ → Cleaned CSV/Excel extracts for analysis  
+│  
+├── 📁 sql  
+│   └── queries/ → Core SQL scripts (trend analysis, cause breakdowns, fire size classification)  
+│   └── exploration/ → Draft queries and experiments  
+│  
+├── 📁 excel  
+│   └── pivot_tables.xlsx → Summaries by year, state, and cause  
+│   └── cleaning_log.xlsx → Documentation of cleaning steps (date formats, categorical fixes)  
+│  
+├── 📁 dashboards  
+│   └── powerbi/ → Power BI dashboard files (.pbix)  
+│   └── screenshots/ → Images of dashboards for README and Medium posts  
+│  
+├── 📁 docs  
+│   └── dataset_story.md → Narrative introduction (Dataset Story section)  
+│   └── analysis_report.md → Final written report with insights and impact  
+│  
+└── README.md → Project overview, Dataset Story, workflow, and results
+
