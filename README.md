@@ -1,20 +1,24 @@
-# Dataset Story: US Wildfires (1992–2015)
+<h1 align="center">US Wildfires (1992–2015)</h1>
 
-## Why We Chose This Dataset
-Wildfires are a growing environmental challenge in the United States. This dataset contains **1.88 million geo‑referenced wildfire records** spanning 24 years, representing over **140 million acres burned**. Its scale and richness make it ideal for showcasing advanced SQL queries, Excel data preparation, and interactive Power BI dashboards.
+Wildfires are a growing environmental challenge in the United States. This dataset contains **1.88 million geo‑referenced wildfire records** spanning 24 years, representing over **140 million acres burned**. Its scale and richness make it ideal for **Excel data preparation**, **showcasing advanced SQL queries**, and **interactive Power BI dashboards**.
 
-## What Makes It Special
-- **Scale**: Millions of records across decades — perfect for demonstrating big data handling.
-- **Geospatial depth**: Latitude/longitude, state, county, and ownership details.
-- **Cause analysis**: Human vs natural causes, with detailed classifications.
-- **Agency diversity**: Data collected from federal, state, local, and tribal organizations.
+### What Makes It Special
+- **Scale**: Millions of records across decades — perfect for demonstrating big data handling.  
+- **Geospatial depth**: Latitude/longitude, state, county, and ownership details.  
+- **Cause analysis**: Human vs natural causes, with detailed classifications.  
+- **Agency diversity**: Data collected from federal, state, local, and tribal organizations.  
 
 ## What We’ll Learn
-- How wildfire frequency and size have changed over time.
-- Which states and counties are most fire‑prone.
-- The leading causes of wildfires and how they vary regionally.
-- How land ownership and agency involvement influence fire management.
+- **Frequency & Scale Trends**: How wildfire frequency and size have changed over time, and whether large fires are becoming more common.  
+- **Geographic Hotspots**: Which states and counties are most fire‑prone, and how risk varies across regions.  
+- **Cause Analysis**: The leading causes of wildfires (human vs natural) and how they differ regionally and seasonally.  
+- **Ownership & Management**: How land ownership (federal, state, private, tribal) influences fire occurrence and containment.  
+- **Seasonality Patterns**: Which months and seasons see the highest fire activity, and how this has shifted over decades.  
+- **Response Effectiveness**: Average containment times across agencies, and whether response efficiency has improved.  
+- **Economic & Environmental Impact**: Total acres burned over time, highlighting the scale of damage and potential costs.  
+- **Predictive Insights**: Using historical data to identify conditions that increase the likelihood of large fires.
 
+  
 ## Planned Actions
 1. **Excel Preparation**
    - Import subsets of the dataset into Excel for quick exploration.
