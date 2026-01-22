@@ -139,6 +139,96 @@ By the end of this analysis, we'll have:
 
 ## 🔧 Phase 1: Data Preparation Journey
 
+
+# US Wildfires Dataset – Column Explanations
+
+This section explains each column in the two core tables (`fires` and `nwcg_units`). It highlights what the column represents, how it can be used in analysis, and why it matters to stakeholders. This ensures transparency and helps non‑technical audiences understand the value of each field.
+
+---
+
+# US Wildfires Dataset – Column Explanations
+
+This section explains each column in the two core tables (`fires` and `nwcg_units`). It highlights what the column represents, how it can be used in analysis, and why it matters to stakeholders. This ensures transparency and helps non‑technical audiences understand the value of each field.
+
+---
+
+## 🔥 Fires Table
+
+| Column | Meaning | Analytical Use | Stakeholder Benefit |
+|--------|---------|----------------|---------------------|
+| **objectid** | Internal row identifier | Technical indexing | Ensures data integrity and traceability |
+| **fod_id** | Unique fire ID across dataset | Primary key for joins | Guarantees uniqueness of each fire record |
+| **fpa_id** | Source-specific fire ID | Linking to original reports | Traceability to agency records |
+| **source_system_type** | Type of reporting system (FED, STATE, LOCAL) | Categorization | Shows diversity of reporting sources |
+| **source_system** | Name of reporting system | Filtering | Identifies reporting platform reliability |
+| **nwcg_reporting_agency** | NWCG agency code | Grouping by agency | Compares agency performance |
+| **nwcg_reporting_unit_id** | Reporting unit ID | Joins with `nwcg_units` | Connects fires to specific units |
+| **nwcg_reporting_unit_name** | Reporting unit name | Regional analysis | Stakeholders see which unit handled the fire |
+| **source_reporting_unit** | Source unit code | Validation | Confirms consistency with NWCG data |
+| **source_reporting_unit_name** | Source unit name | Regional grouping | Adds clarity for non‑technical readers |
+| **local_fire_report_id** | Local fire report ID | Traceability | Links to local documentation |
+| **local_incident_id** | Local incident ID | Incident tracking | Useful for local agency reporting |
+| **fire_code** | Fire tracking code | Filtering | Connects to ICS/agency systems |
+| **fire_name** | Fire name | Labeling | Easier storytelling in dashboards |
+| **ics_209_incident_number** | ICS‑209 incident number | Incident analysis | Connects to national incident system |
+| **ics_209_name** | ICS‑209 incident name | Labeling | Adds clarity for stakeholders |
+| **mtbs_id** | Monitoring Trends in Burn Severity ID | Burn severity analysis | Connects to MTBS program |
+| **mtbs_fire_name** | MTBS fire name | Labeling | Adds clarity for severity studies |
+| **complex_name** | Fire complex name | Grouping | Shows multi‑fire complexes |
+| **fire_year** | Year fire discovered | Trend analysis | Tracks long‑term wildfire trends |
+| **discovery_date** | Julian discovery date | Raw date storage | Preserves original dataset integrity |
+| **discovery_date_greg** | Gregorian discovery date | Time analysis | Readable calendar dates for stakeholders |
+| **discovery_doy** | Day of year discovered | Seasonality analysis | Identifies seasonal fire patterns |
+| **discovery_time** | Time of day discovered | Response analysis | Shows detection speed |
+| **stat_cause_code** | Cause code (numeric) | Categorization | Enables statistical cause breakdown |
+| **stat_cause_descr** | Cause description | Cause analysis | Stakeholders see human vs natural causes |
+| **cont_date** | Julian containment date | Raw date storage | Preserves original dataset integrity |
+| **cont_date_greg** | Gregorian containment date | Response analysis | Measures containment speed |
+| **cont_doy** | Day of year contained | Seasonality analysis | Shows containment timing patterns |
+| **cont_time** | Time of day contained | Response analysis | Evaluates agency efficiency |
+| **fire_size** | Final fire size (acres) | Scale analysis | Quantifies damage for stakeholders |
+| **fire_size_class** | Fire size class (A–G) | Classification | Simplifies communication of fire magnitude |
+| **latitude** | Latitude (NAD83) | Geospatial analysis | Maps fire locations |
+| **longitude** | Longitude (NAD83) | Geospatial analysis | Maps fire locations |
+| **owner_code** | Land ownership code | Categorization | Shows ownership impact on fire risk |
+| **owner_descr** | Land ownership description | Ownership analysis | Stakeholders see federal vs private land impact |
+| **state** | Two‑letter state code | Regional analysis | Identifies state‑level fire trends |
+| **county** | County name | Local analysis | Identifies county‑level hotspots |
+| **fips_code** | County FIPS code | Standardized ID | Enables joins with census data |
+| **fips_name** | County FIPS name | Labeling | Adds clarity for non‑technical readers |
+| **shape** | Geometry placeholder | Geospatial mapping | Supports advanced GIS analysis |
+
+---
+
+## 🏢 NWCG Units Table
+
+| Column | Meaning | Analytical Use | Stakeholder Benefit |
+|--------|---------|----------------|---------------------|
+| **unit_id** | Unique unit identifier | Primary key | Ensures uniqueness of reporting units |
+| **unit_name** | Full name of reporting unit | Labeling | Stakeholders recognize agency names |
+| **unit_type** | Type of unit (e.g., Forest, District) | Categorization | Shows organizational structure |
+| **agency_code** | Agency code (e.g., FS, BLM) | Grouping | Compares performance across agencies |
+| **state** | State code | Regional analysis | Identifies state‑level unit distribution |
+| **unit_code** | Short code for unit | Joins with `fires` | Links fires to reporting units |
+| **unit_description** | Description of unit | Context | Adds clarity for stakeholders |
+| **region** | Geographic region | Regional grouping | Shows distribution of fire management responsibilities |
+
+---
+
+## 📌 Why We Chose These Two Tables
+
+Out of all the tables in the dataset, we selected **`fires`** and **`nwcg_units`** because they form the **core backbone of wildfire analysis**:
+
+- **`fires` table**: Contains the detailed incident‑level records (dates, causes, sizes, locations, ownership). It is the primary source for trend analysis, geospatial mapping, and cause/impact studies. Without this table, we cannot answer fundamental questions about wildfire frequency, scale, or impact.  
+- **`nwcg_units` table**: Provides the organizational context (which agency or unit reported the fire). It allows us to connect incidents to specific reporting bodies, enabling performance comparisons, accountability analysis, and regional breakdowns.  
+
+Together, these two tables bridge **incident data** with **organizational responsibility**, giving stakeholders a complete picture: not just *where and when* fires occurred, but also *who reported them and how they were managed*. This makes them the most valuable pair for both technical analysis and stakeholder storytelling.
+
+---
+
+
+
+
 ### The Challenge: Making Sense of 1.88 Million Records
 
 Working with real-world data is never straightforward. Our dataset arrived as a massive CSV file with **39 columns** and **1,880,456 rows**—far too large for Excel, filled with inconsistent formats, and spanning multiple reporting systems across decades.
