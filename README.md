@@ -1,13 +1,11 @@
-<h1 align="center">US Wildfires (1992–2015)</h1>
+<h1 align="center">US Wildfires Analysis (1992–2015)</h1>
 
-# US Wildfires Analysis (1992–2015)
-## From Raw Data to Insights: A Data Analytics Journey
 
 ---
 
-## 🔥 The Story Behind the Data
+##  The Story Behind the Data
 
-Every year, wildfires consume millions of acres across the United States, threatening lives, property, and ecosystems. But behind each flame is a data point—a record that tells us when it started, what caused it, how big it grew, and who responded. This project analyzes **1.88 million geo-referenced wildfire records** spanning 24 years (1992–2015), representing over **140 million acres burned**.
+Every year, wildfires consume millions of acres across the United States, threatening lives, property, and ecosystems. But behind each flame is a data point—a record that tells us when it started, what caused it, how big it grew, and who responded. This project analyzes **1.88 million geo-referenced wildfire records** spanning 24 years (1992–2015), representing over **Over 140 million acres of land were destroyed by wildfires**.
 
 **Dataset Source**: [1.88 Million US Wildfires - Kaggle](https://www.kaggle.com/datasets/rtatman/188-million-us-wildfires)
 
@@ -24,63 +22,95 @@ This scale and complexity make it perfect for demonstrating real-world data anal
 
 ---
 
-## 🎯 What We're Investigating
+# 🔍 What We're Investigating
 
-Our analysis aims to answer critical questions about wildfire patterns and their implications:
-
-### Temporal Trends
-- How have wildfire frequency and severity changed over 24 years?
-- Are large, catastrophic fires becoming more common?
-- Which months and seasons pose the greatest fire risk?
-
-### Geographic Patterns
-- Which states and counties face the highest wildfire risk?
-- How does fire behavior differ between regions?
-- Where should fire prevention resources be concentrated?
-
-### Causation & Prevention
-- What are the leading causes of wildfires?
-- How do human-caused fires differ from natural ignitions?
-- Which causes vary by season or geography?
-
-### Management & Response
-- How does land ownership (federal, state, private, tribal) affect fire occurrence?
-- Which agencies respond most effectively?
-- Has containment efficiency improved over time?
-
-### Impact Assessment
-- What's the total environmental and economic cost?
-- Can we identify conditions that predict large fires?
-- What patterns emerge for future prevention strategies?
+Our analysis focuses on answering critical questions about wildfire patterns and their implications, using the available dataset (1992–2015, 1.88M records). Each question is designed to provide actionable insights that benefit stakeholders, including policymakers, environmental agencies, and community leaders.
 
 ---
 
-## 🛠️ Our Analytical Approach
+## ⏳ Temporal Trends
+- How have wildfire frequency and severity changed over 24 years?  
+- Are large, catastrophic fires becoming more common?  
+- Which months and seasons pose the greatest fire risk?  
 
-This project showcases the complete data analytics workflow:
+**Stakeholder Benefit**: Identifies long-term trends and seasonal risks, guiding prevention campaigns and resource allocation.
 
-### 1. **Excel Preparation**
-- Initial data exploration and subset analysis
-- PivotTables for quick summaries (fire counts by year, state, cause)
-- Conditional formatting to identify hotspots
-- Documentation of all cleaning decisions
+---
 
-### 2. **SQL Analysis** 
-- Complex queries for trend analysis and aggregations
-- Fire size classification and cause breakdowns
-- Multi-table joins for agency and ownership analysis
-- Performance optimization for 1.88M records
+## 🌍 Geographic Patterns
+- Which states and counties face the highest wildfire risk?  
+- How does fire behavior differ between regions?  
+- Where should fire prevention resources be concentrated?  
 
-### 3. **Power BI Dashboards**
-- Interactive geographic heat maps
-- Time-series visualizations of fire trends
-- Drill-down capabilities by region, cause, and ownership
-- User-friendly interface for non-technical stakeholders
+**Stakeholder Benefit**: Pinpoints geographic hotspots, helping direct funding and manpower to the most vulnerable areas.
 
-### 4. **Storytelling**
-- Synthesizing technical findings into actionable insights
-- Clear narrative connecting data to real-world impact
-- Professional documentation for portfolio presentation
+---
+
+## 🔥 Causation & Prevention
+- What are the leading causes of wildfires?  
+- How do human-caused fires differ from natural ignitions?  
+- Which causes vary by season or geography?  
+
+**Stakeholder Benefit**: Differentiates human vs natural causes, enabling targeted prevention strategies (e.g., campfire safety vs lightning monitoring).
+
+---
+
+## 🏢 Management & Response
+- How does land ownership (federal, state, private, tribal) affect fire occurrence?  
+- Which agencies respond most effectively?  
+- Has containment efficiency improved over time?  
+- Which agencies handle the largest workloads, and how does this affect performance?  
+
+**Stakeholder Benefit**: Evaluates agency accountability and efficiency, supporting better resource planning and policy decisions.
+
+---
+
+## 💡 Impact Assessment
+- What’s the total environmental and economic cost of wildfires?  
+- Can we identify conditions that predict large fires?  
+- What patterns emerge for future prevention strategies?  
+- Do certain counties experience repeated fires (recurrence), and what does this mean for long-term management?  
+
+**Stakeholder Benefit**: Quantifies damage, highlights predictive risk factors, and supports long-term investment in prevention and recovery.
+
+---
+
+# 🛠️ Our Analytical Approach
+
+This project showcases the complete data analytics workflow, balancing exploration, large-scale querying, and stakeholder-friendly visualization.
+
+---
+
+### 1. Excel Preparation
+- Lightweight exploration of small subsets of the dataset  
+- PivotTables for quick summaries (fire counts by year, state, cause)  
+- Conditional formatting to highlight hotspots  
+- Documentation of cleaning and transformation decisions  
+
+**Note**: Excel is used primarily for exploration and documentation. Large-scale analysis is handled in SQL and Power BI.
+
+---
+
+### 2. SQL Analysis
+- Complex queries for trend analysis and aggregations  
+- Fire size classification and cause breakdowns  
+- Multi-table joins for agency and ownership analysis  
+- Performance optimization for 1.88M records  
+
+---
+
+### 3. Power BI Dashboards
+- Interactive geographic heat maps  
+- Time-series visualizations of fire trends  
+- Drill-down capabilities by region, cause, and ownership  
+- User-friendly interface for non-technical stakeholders  
+
+---
+
+### 4. Storytelling
+- Synthesizing technical findings into actionable insights  
+- Clear narrative connecting data to real-world impact  
+- Helping stakeholders understand problems, evaluate solutions, and gain data-driven insights for better decision-making  
 
 ---
 
@@ -93,18 +123,31 @@ By the end of this analysis, we'll have:
 - ✅ **Cause Analysis** revealing the role of human activity vs. natural factors
 - ✅ **Management Insights** comparing effectiveness across agencies and land types
 - ✅ **Professional Dashboard** communicating findings to both technical and non-technical audiences
-- ✅ **Portfolio-Ready Documentation** demonstrating end-to-end analytics capabilities
+---
+
+## 🛠️ Tools We Use
+
+Our workflow combines core analytics platforms with supporting environments and assistants to ensure efficiency, reproducibility, and clear stakeholder communication.
 
 ---
 
-## 🧰 Technology Stack
+### Core Analytics Tools
+- **Excel** → Lightweight exploration of small subsets, PivotTables for quick summaries, conditional formatting for hotspots, and documentation of cleaning decisions  
+- **PostgreSQL** → Robust database management, complex queries, and aggregations across 1.88M records  
+- **SQL** → Data extraction, transformation, and analysis for trend, cause, and ownership breakdowns  
+- **Power BI** → Interactive dashboards, geospatial visualizations, and user-friendly interfaces for non-technical stakeholders  
 
-| Tool | Purpose |
-|------|---------|
-| **Excel** | Initial exploration, PivotTables, cleaning documentation |
-| **PostgreSQL** | Database management, complex queries, aggregations |
-| **SQL** | Data extraction, transformation, and analysis |
-| **Power BI** | Interactive dashboards and geospatial visualizations |
+---
+
+### Supporting Tools
+- **VS Code** → Development environment for SQL/Python scripting, workflow reproducibility, and version control integration  
+- **DB Browser** → Quick schema inspection and lightweight database management for SQLite/PostgreSQL  
+- **AI Assistants (Claude, Microsoft Copilot, Perplexity)** → Supporting productivity, documentation drafting, brainstorming, and stakeholder communication  
+
+---
+
+This distinction highlights the **core tools** that drive the analysis and the **supporting tools** that enhance productivity, transparency, and storytelling for stakeholders.
+
 
 ---
 
@@ -140,78 +183,95 @@ By the end of this analysis, we'll have:
 ## 🔧 Phase 1: Data Preparation Journey
 
 
-# US Wildfires Dataset – Column Explanations
-
-This section explains each column in the two core tables (`fires` and `nwcg_units`). It highlights what the column represents, how it can be used in analysis, and why it matters to stakeholders. This ensures transparency and helps non‑technical audiences understand the value of each field.
-
----
+# Column Explanations-
 
 # US Wildfires Dataset – Column Explanations
 
-This section explains each column in the two core tables (`fires` and `nwcg_units`). It highlights what the column represents, how it can be used in analysis, and why it matters to stakeholders. This ensures transparency and helps non‑technical audiences understand the value of each field.
+This section explains each column in the two core tables (`fires` and `nwcg_units`). It highlights the meaning, abbreviation, and analytical benefit of each field. The goal is to simplify technical details so stakeholders can clearly see how each column contributes to understanding wildfire patterns and management.
 
 ---
 
 ## 🔥 Fires Table
 
-| Column | Meaning | Analytical Use | Stakeholder Benefit |
-|--------|---------|----------------|---------------------|
-| **objectid** | Internal row identifier | Technical indexing | Ensures data integrity and traceability |
-| **fod_id** | Unique fire ID across dataset | Primary key for joins | Guarantees uniqueness of each fire record |
-| **fpa_id** | Source-specific fire ID | Linking to original reports | Traceability to agency records |
-| **source_system_type** | Type of reporting system (FED, STATE, LOCAL) | Categorization | Shows diversity of reporting sources |
-| **source_system** | Name of reporting system | Filtering | Identifies reporting platform reliability |
-| **nwcg_reporting_agency** | NWCG agency code | Grouping by agency | Compares agency performance |
-| **nwcg_reporting_unit_id** | Reporting unit ID | Joins with `nwcg_units` | Connects fires to specific units |
-| **nwcg_reporting_unit_name** | Reporting unit name | Regional analysis | Stakeholders see which unit handled the fire |
-| **source_reporting_unit** | Source unit code | Validation | Confirms consistency with NWCG data |
-| **source_reporting_unit_name** | Source unit name | Regional grouping | Adds clarity for non‑technical readers |
-| **local_fire_report_id** | Local fire report ID | Traceability | Links to local documentation |
-| **local_incident_id** | Local incident ID | Incident tracking | Useful for local agency reporting |
-| **fire_code** | Fire tracking code | Filtering | Connects to ICS/agency systems |
-| **fire_name** | Fire name | Labeling | Easier storytelling in dashboards |
-| **ics_209_incident_number** | ICS‑209 incident number | Incident analysis | Connects to national incident system |
-| **ics_209_name** | ICS‑209 incident name | Labeling | Adds clarity for stakeholders |
-| **mtbs_id** | Monitoring Trends in Burn Severity ID | Burn severity analysis | Connects to MTBS program |
-| **mtbs_fire_name** | MTBS fire name | Labeling | Adds clarity for severity studies |
-| **complex_name** | Fire complex name | Grouping | Shows multi‑fire complexes |
-| **fire_year** | Year fire discovered | Trend analysis | Tracks long‑term wildfire trends |
-| **discovery_date** | Julian discovery date | Raw date storage | Preserves original dataset integrity |
-| **discovery_date_greg** | Gregorian discovery date | Time analysis | Readable calendar dates for stakeholders |
-| **discovery_doy** | Day of year discovered | Seasonality analysis | Identifies seasonal fire patterns |
-| **discovery_time** | Time of day discovered | Response analysis | Shows detection speed |
-| **stat_cause_code** | Cause code (numeric) | Categorization | Enables statistical cause breakdown |
-| **stat_cause_descr** | Cause description | Cause analysis | Stakeholders see human vs natural causes |
-| **cont_date** | Julian containment date | Raw date storage | Preserves original dataset integrity |
-| **cont_date_greg** | Gregorian containment date | Response analysis | Measures containment speed |
-| **cont_doy** | Day of year contained | Seasonality analysis | Shows containment timing patterns |
-| **cont_time** | Time of day contained | Response analysis | Evaluates agency efficiency |
-| **fire_size** | Final fire size (acres) | Scale analysis | Quantifies damage for stakeholders |
-| **fire_size_class** | Fire size class (A–G) | Classification | Simplifies communication of fire magnitude |
-| **latitude** | Latitude (NAD83) | Geospatial analysis | Maps fire locations |
-| **longitude** | Longitude (NAD83) | Geospatial analysis | Maps fire locations |
-| **owner_code** | Land ownership code | Categorization | Shows ownership impact on fire risk |
-| **owner_descr** | Land ownership description | Ownership analysis | Stakeholders see federal vs private land impact |
-| **state** | Two‑letter state code | Regional analysis | Identifies state‑level fire trends |
-| **county** | County name | Local analysis | Identifies county‑level hotspots |
-| **fips_code** | County FIPS code | Standardized ID | Enables joins with census data |
-| **fips_name** | County FIPS name | Labeling | Adds clarity for non‑technical readers |
-| **shape** | Geometry placeholder | Geospatial mapping | Supports advanced GIS analysis |
+| Column | Meaning (Simplified) | Abbreviation | Analytical Benefit |
+|--------|-----------------------|--------------|--------------------|
+| **objectid** | Internal row number | — | Ensures data integrity and indexing |
+| **fod_id** | Unique fire identifier | FOD | Primary key for joins; guarantees uniqueness |
+| **fpa_id** | Agency-specific fire ID | FPA | Links to original agency reports |
+| **source_system_type** | Type of reporting system (Federal, State, Local) | — | Categorizes reporting sources |
+| **source_system** | Name of reporting system | — | Filters by reporting platform |
+| **nwcg_reporting_agency** | Agency code (NWCG standard) | NWCG | Groups fires by reporting agency |
+| **nwcg_reporting_unit_id** | Reporting unit identifier | Unit ID | Connects fires to `nwcg_units` table |
+| **nwcg_reporting_unit_name** | Reporting unit name | — | Shows which unit handled the fire |
+| **source_reporting_unit** | Source unit code | — | Validates consistency with NWCG data |
+| **source_reporting_unit_name** | Source unit name | — | Adds clarity for non-technical readers |
+| **local_fire_report_id** | Local fire report ID | — | Links to local documentation |
+| **local_incident_id** | Local incident ID | — | Tracks incidents at local level |
+| **fire_code** | Fire tracking code | — | Connects to ICS/agency systems |
+| **fire_name** | Fire name | — | Easier storytelling in dashboards |
+| **ics_209_incident_number** | ICS-209 incident number | ICS | Connects to national incident system |
+| **ics_209_name** | ICS-209 incident name | — | Adds clarity for stakeholders |
+| **mtbs_id** | Burn severity program ID | MTBS | Links to MTBS severity analysis |
+| **mtbs_fire_name** | MTBS fire name | — | Adds clarity for severity studies |
+| **complex_name** | Fire complex name | — | Groups multi-fire complexes |
+| **fire_year** | Year fire discovered | — | Tracks long-term wildfire trends |
+| **discovery_date** | Julian discovery date | — | Raw date storage |
+| **discovery_date_greg** | Converted Gregorian date | — | Readable calendar dates |
+| **discovery_doy** | Day of year discovered | DOY | Identifies seasonal fire patterns |
+| **discovery_time** | Time of day discovered | — | Shows detection speed |
+| **stat_cause_code** | Numeric cause code | — | Enables statistical cause breakdown |
+| **stat_cause_descr** | Cause description | — | Differentiates human vs natural causes |
+| **cont_date** | Julian containment date | — | Raw date storage |
+| **cont_date_greg** | Converted Gregorian containment date | — | Measures containment speed |
+| **cont_doy** | Day of year contained | DOY | Shows containment timing |
+| **cont_time** | Time of day contained | — | Evaluates agency efficiency |
+| **fire_size** | Final fire size (in acres) | — | Quantifies damage |
+| **fire_size_class** | Fire size class (A–G) | — | Simplifies communication of fire magnitude |
+| **latitude** | Latitude (NAD83) | — | Maps fire locations |
+| **longitude** | Longitude (NAD83) | — | Maps fire locations |
+| **owner_code** | Land ownership code | — | Categorizes ownership impact |
+| **owner_descr** | Land ownership description | — | Shows federal vs private land impact |
+| **state** | Two-letter state code | — | Identifies state-level fire trends |
+| **county** | County name | — | Identifies county-level hotspots |
+| **fips_code** | County FIPS code | FIPS | Enables joins with census data |
+| **fips_name** | County FIPS name | — | Adds clarity for non-technical readers |
+| **shape** | Geometry placeholder | — | Supports advanced GIS analysis |
 
 ---
 
 ## 🏢 NWCG Units Table
 
-| Column | Meaning | Analytical Use | Stakeholder Benefit |
-|--------|---------|----------------|---------------------|
-| **unit_id** | Unique unit identifier | Primary key | Ensures uniqueness of reporting units |
-| **unit_name** | Full name of reporting unit | Labeling | Stakeholders recognize agency names |
-| **unit_type** | Type of unit (e.g., Forest, District) | Categorization | Shows organizational structure |
-| **agency_code** | Agency code (e.g., FS, BLM) | Grouping | Compares performance across agencies |
-| **state** | State code | Regional analysis | Identifies state‑level unit distribution |
-| **unit_code** | Short code for unit | Joins with `fires` | Links fires to reporting units |
-| **unit_description** | Description of unit | Context | Adds clarity for stakeholders |
-| **region** | Geographic region | Regional grouping | Shows distribution of fire management responsibilities |
+| Column | Meaning (Simplified) | Abbreviation | Analytical Benefit |
+|--------|-----------------------|--------------|--------------------|
+| **unit_id** | Unique unit identifier | — | Primary key; ensures uniqueness |
+| **unit_name** | Full name of reporting unit | — | Stakeholders recognize agency names |
+| **unit_type** | Type of unit (Forest, District, County, etc.) | — | Shows organizational structure |
+| **agency_code** | Agency code (e.g., FS, BLM) | — | Groups and compares performance |
+| **state** | State code | — | Identifies state-level unit distribution |
+| **unit_code** | Short code for unit | — | Links fires to reporting units |
+| **unit_description** | Description of unit | — | Adds context for stakeholders |
+| **region** | Geographic region | — | Shows distribution of fire management responsibilities |
+
+---
+
+## 🗂️ Schema and Relationship
+
+### Fires Table Schema (Simplified)
+```sql
+CREATE TABLE fires (
+    fod_id BIGINT PRIMARY KEY,
+    fire_year INT,
+    fire_name TEXT,
+    stat_cause_descr TEXT,
+    fire_size NUMERIC,
+    fire_size_class CHAR(1),
+    latitude NUMERIC(10,6),
+    longitude NUMERIC(10,6),
+    state CHAR(2),
+    county TEXT,
+    nwcg_reporting_unit_id TEXT,
+    owner_descr TEXT
+);
 
 ---
 
