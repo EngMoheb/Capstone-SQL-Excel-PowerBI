@@ -1,7 +1,8 @@
 <h1 align="center">US Wildfires Analysis (1992–2015)</h1>
 
+![Wildfire](https://research.arizona.edu/sites/default/files/styles/az_large/public/wildfire-cover-2.jpg.webp?itok=uNObqQCk)
 
----
+*Image Source: [University of Arizona Research](https://research.arizona.edu/stories/7-things-you-didnt-know-about-wildfire)*
 
 ##  The Story Behind the Data
 
@@ -76,10 +77,6 @@ Our analysis focuses on answering critical questions about wildfire patterns and
 ---
 
 # 🛠️ Our Analytical Approach
-
-This project showcases the complete data analytics workflow, balancing exploration, large-scale querying, and stakeholder-friendly visualization.
-
----
 
 ### 1. Excel Preparation
 - Lightweight exploration of small subsets of the dataset  
@@ -183,13 +180,7 @@ This distinction highlights the **core tools** that drive the analysis and the *
 ## 🔧 Phase 1: Data Preparation Journey
 
 
-# Column Explanations-
-
-# US Wildfires Dataset – Column Explanations
-
-This section explains each column in the two core tables (`fires` and `nwcg_units`). It highlights the meaning, abbreviation, and analytical benefit of each field. The goal is to simplify technical details so stakeholders can clearly see how each column contributes to understanding wildfire patterns and management.
-
----
+# Column Explanations
 
 ## 🔥 Fires Table
 
@@ -254,27 +245,6 @@ This section explains each column in the two core tables (`fires` and `nwcg_unit
 
 ---
 
-## 🗂️ Schema and Relationship
-
-### Fires Table Schema (Simplified)
-```sql
-CREATE TABLE fires (
-    fod_id BIGINT PRIMARY KEY,
-    fire_year INT,
-    fire_name TEXT,
-    stat_cause_descr TEXT,
-    fire_size NUMERIC,
-    fire_size_class CHAR(1),
-    latitude NUMERIC(10,6),
-    longitude NUMERIC(10,6),
-    state CHAR(2),
-    county TEXT,
-    nwcg_reporting_unit_id TEXT,
-    owner_descr TEXT
-);
-
----
-
 ## 📌 Why We Chose These Two Tables
 
 Out of all the tables in the dataset, we selected **`fires`** and **`nwcg_units`** because they form the **core backbone of wildfire analysis**:
@@ -286,28 +256,13 @@ Together, these two tables bridge **incident data** with **organizational respon
 
 ---
 
+## 📦 Database Schema Design
 
-
-
-### The Challenge: Making Sense of 1.88 Million Records
-
-Working with real-world data is never straightforward. Our dataset arrived as a massive CSV file with **39 columns** and **1,880,456 rows**—far too large for Excel, filled with inconsistent formats, and spanning multiple reporting systems across decades.
-
-### Dataset Specifications
-
-| Attribute | Value |
-|-----------|-------|
-| **Source File** | `Fires.csv` |
-| **Total Records** | 1,880,456 |
-| **Time Coverage** | 1992–2015 (24 years) |
-| **Total Columns** | 39 |
-| **Key Data Types** | Julian dates, geolocation, fire metadata, agency codes |
+To efficiently manage and query the US Wildfires dataset (1.88M records), we designed a PostgreSQL database with two core tables: `fires` and `nwcg_units`. These tables are linked via a one-to-many relationship, allowing us to connect each wildfire incident to the unit that reported it.
 
 ---
 
-### Building the Foundation: Database Schema Design
-
-To handle this volume efficiently, we designed a PostgreSQL database. Here's our schema:
+### 🔥 Fires Table Schema
 ```sql
 CREATE TABLE fires (
     objectid INT,
@@ -352,15 +307,126 @@ CREATE TABLE fires (
 );
 ```
 
-### Loading the Data
+### 🏢 NWCG Units Table Schema
+```sql
+CREATE TABLE nwcg_units (
+    unit_id TEXT PRIMARY KEY,
+    unit_name TEXT,
+    unit_type TEXT,
+    agency_code TEXT,
+    state CHAR(2),
+    unit_code TEXT,
+    unit_description TEXT,
+    region TEXT
+);
+```
+
+### 📥 Loading the Data
 ```sql
 COPY fires
 FROM 'D:/Projects/Capstone/CSV/Fires.csv'
 DELIMITER ','
 CSV HEADER;
+
+COPY nwcg_units
+FROM 'D:/Projects/Capstone/CSV/NWCG_Units.csv'
+DELIMITER ','
+CSV HEADER;
 ```
 
-Simple in theory. In practice? We hit three major roadblocks.
+## 🗄️ Entity Relationship Diagram (ERD)
+```mermaid
+erDiagram
+    FIRES }o--|| NWCG_UNITS : "reported_by"
+    
+    FIRES {
+        bigint fod_id PK
+        text nwcg_reporting_unit_id FK
+        int objectid
+        text fpa_id
+        text source_system_type
+        text source_system
+        text nwcg_reporting_agency
+        text nwcg_reporting_unit_name
+        text source_reporting_unit
+        text source_reporting_unit_name
+        text local_fire_report_id
+        text local_incident_id
+        text fire_code
+        text fire_name
+        text ics_209_incident_number
+        text ics_209_name
+        text mtbs_id
+        text mtbs_fire_name
+        text complex_name
+        int fire_year
+        numeric discovery_date
+        numeric discovery_doy
+        text discovery_time
+        numeric stat_cause_code
+        text stat_cause_descr
+        numeric cont_date
+        numeric cont_doy
+        text cont_time
+        numeric fire_size
+        char fire_size_class
+        numeric latitude
+        numeric longitude
+        numeric owner_code
+        text owner_descr
+        char state
+        text county
+        text fips_code
+        text fips_name
+        text shape
+    }
+    
+    NWCG_UNITS {
+        text unit_id PK
+        text unit_name
+        text unit_type
+        text agency_code
+        char state
+        text unit_code
+        text unit_description
+        text region
+    }
+```
+
+---
+
+## 🔗 Relationship Details
+
+| Relationship | Type | Description |
+|--------------|------|-------------|
+| **FIRES → NWCG_UNITS** | Many-to-One | Each fire is reported by one NWCG unit; each unit can report multiple fires |
+| **Foreign Key** | `nwcg_reporting_unit_id` | Links fires to their reporting units |
+---
+
+
+## 🎯 Key Schema Insights
+
+- **Primary Keys**: `fod_id` (fires) and `unit_id` (nwcg_units) ensure data integrity
+- **Geospatial Data**: `latitude`, `longitude` enable mapping and spatial analysis
+- **Temporal Data**: Multiple date fields support comprehensive trend analysis
+- **Classification**: `fire_size_class`, `stat_cause_descr`, `owner_descr` enable categorical breakdown
+- **Organizational Context**: Foreign key relationship connects incidents to responsible agencies
+- **Data Quality**: Removing redundant columns improves maintainability and performance
+
+---
+### The Challenge: Making Sense of 1.88 Million Records
+
+Working with real-world data is never straightforward. Our dataset arrived as a massive CSV file with **39 columns** and **1,880,456 rows**—far too large for Excel, filled with inconsistent formats, and spanning multiple reporting systems across decades.
+
+### Dataset Specifications
+
+| Attribute | Value |
+|-----------|-------|
+| **Source File** | `Fires.csv` |
+| **Total Records** | 1,880,456 |
+| **Time Coverage** | 1992–2015 (24 years) |
+| **Total Columns** | 39 |
+| **Key Data Types** | Julian dates, geolocation, fire metadata, agency codes |
 
 ---
 
@@ -435,6 +501,43 @@ After successfully importing all records, we validated the data quality:
 ---
 
 ## 🔜 Next Phase: Data Cleaning & Transformation
+
+## 🔴 Redundant/Unnecessary Columns Identified
+
+### **FIRES Table:**
+- `stat_cause_code` - **Redundant**: Numeric version of `stat_cause_descr`
+- `owner_code` - **Redundant**: Numeric version of `owner_descr`
+- `nwcg_reporting_agency` - **Redundant**: Can be joined from `nwcg_units.agency_code`
+- `nwcg_reporting_unit_name` - **Redundant**: Can be joined from `nwcg_units.unit_name`
+- `source_reporting_unit` - **Redundant**: Duplicate of `nwcg_reporting_unit_id`
+- `source_reporting_unit_name` - **Redundant**: Duplicate of unit name
+- `fips_name` - **Redundant**: Duplicate of `county` field
+
+### **NWCG_UNITS Table:**
+- `unit_code` - **Redundant**: Duplicate/similar to `unit_id`
+
+---
+
+## 💡 Schema Optimization Recommendations
+
+### **Columns to Consider Removing:**
+1. All numeric codes that have corresponding text descriptions (`stat_cause_code`, `owner_code`)
+2. Redundant agency/unit name fields that can be retrieved via JOIN operations
+3. `source_reporting_unit` and `source_reporting_unit_name` (duplicates of NWCG fields)
+4. `fips_name` (already represented by `county`)
+5. `unit_code` from NWCG_UNITS table
+
+### **Benefits of Cleanup:**
+- ✅ Reduced storage footprint (~15-20% size reduction)
+- ✅ Faster query performance (fewer columns to scan)
+- ✅ Simplified data model for stakeholders
+- ✅ Reduced data redundancy and update anomalies
+- ✅ Clearer foreign key relationships
+
+### **Indexing Recommendations:**
+- Create indexes on: `fire_year`, `state`, `fire_size_class`, `stat_cause_descr`, `nwcg_reporting_unit_id`
+- Create composite index on: (`state`, `fire_year`) for state-level time-series queries
+- Create spatial index on: (`latitude`, `longitude`) for geospatial queries
 
 With 1.88 million records successfully imported and validated, we're ready for the next critical phase. Our data cleaning will focus on:
 
