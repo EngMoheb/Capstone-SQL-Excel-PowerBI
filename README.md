@@ -585,11 +585,4 @@ This analysis will demonstrate:
 
 This is just the beginning of our journey through 24 years of wildfire data. Follow along as we clean, analyze, and visualize patterns that could inform fire prevention strategies and resource allocation decisions.
 
-**Next Update**: Data Cleaning & Transformation Results
 
----
-
-*This project is part of a data analytics portfolio demonstrating end-to-end capabilities from raw data to polished insights.*
-- Standardizing categorical fields
-- Ensuring geolocation accuracy
-- Preparing fields for analysis and dashboardingrding
